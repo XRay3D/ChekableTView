@@ -3,7 +3,6 @@
 #include "model.h"
 
 #include <QCheckBox>
-#include <QDebug>
 
 TableView::TableView(QWidget* parent)
     : QTableView(parent)
