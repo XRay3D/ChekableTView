@@ -68,11 +68,13 @@ void TableView::createCornerCheckBox(Header* header)
         checkBox->setGeometry(Header::getRect(cornerButton->rect()).translated(1, -4));
         connect(checkBox, &QCheckBox::clicked, [header](bool checked) { header->setAll(checked); });
         connect(header, &Header::onCheckedV, [checkBox](const QVector<bool>& v, int) {
-            checkBox->setCheckState((Qt::CheckState[]) {
+            static const Qt::CheckState chState[]{
                 Qt::Unchecked,
                 Qt::Unchecked,
                 Qt::Checked,
-                Qt::PartiallyChecked }[v.contains(true) * 2 | v.contains(false) * 1]);
+                Qt::PartiallyChecked
+            };
+            checkBox->setCheckState(chState[v.contains(true) * 2 | v.contains(false) * 1]);
         });
     }
 }
