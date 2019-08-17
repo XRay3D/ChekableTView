@@ -1,7 +1,6 @@
 #include "model.h"
 
 #include <QFile>
-#include <QMap>
 
 Model::Model(QObject* parent, const QVector<bool>* hChecked, const QVector<bool>* vChecked)
     : QAbstractTableModel(parent)
